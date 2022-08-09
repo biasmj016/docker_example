@@ -1,25 +1,25 @@
 package com.docker.tutorial.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.relational.core.mapping.Column;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@ToString
+@Table(name = "BOARD")
 public class Board {
 
     @Id
-    @Column("POST_ID")
+    @Column("BOARD_SEQ")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column("TITLE")

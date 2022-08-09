@@ -6,10 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/boards")
 public class BoardApiController {
-    private final BoardService service;
+    private BoardService service;
+
+    public BoardApiController(BoardService service) {
+        this.service = service;
+    }
 
     @GetMapping("/{id}")
     public Board findById(@PathVariable Long id) {

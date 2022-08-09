@@ -6,7 +6,7 @@ VOLUME /tmp
 
 EXPOSE 8080
 
-ARG JAR_FILE=build/libs/example.jar
-ADD ${JAR_FILE} to-do-springboot.jar
-
-ENTRYPOINT ["java","-jar","/to-do-springboot.jar"]
+ARG JAR_FILE=build/libs/*.jar
+VOLUME /tmp
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
