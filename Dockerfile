@@ -1,6 +1,6 @@
 FROM java:8
 
-LABEL maintainer="biasmj016"
+LABEL maintainer="test"
 
 VOLUME /tmp
 
